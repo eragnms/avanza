@@ -3,7 +3,7 @@ import json
 
 from .constants import constants, BASE_URL
 from .base import Base
-
+import logging
 
 class Ticker(Base):
     """Request information about stock/certificate/fund/etc
@@ -19,11 +19,14 @@ class Ticker(Base):
     def __init__(self, orderbook_id, **kwargs):
         super().__init__()
         instrument = kwargs.pop('instrument', 'stock').lower()
+        logging.debug(f"instrument {instrument}")
         auth = kwargs.pop('auth', False)
+        logging.debug(f"auth {auth}")
         assert not kwargs
         if instrument in ['fund', 'certificate', 'stock']:
             path = f"{BASE_URL}{constants['paths']['INSTRUMENT_PATH']}"
             url = path.format(instrument, orderbook_id)
+            logging.debug(f"url {url}")
             self.data = self._request(url, auth=auth)
         else:
             raise TypeError("Invalid option!")
@@ -65,7 +68,7 @@ class Ticker(Base):
         Returns:
             float:
         """
-        return self.data['lastPrice']
+        return self.data['quote']['last']
 
     @property
     def highest_price(self):
