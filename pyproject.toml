@@ -8,8 +8,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "Avanza"
-# Declare that the version is determined dynamically from your code.
-dynamic = ["version"]
+version = "0.0.15"
 description = "Python wrapper for Unofficial Avanza API"
 readme = { file = "README.rst", content-type = "text/x-rst" }
 requires-python = ">=3.6"
@@ -37,6 +36,3 @@ classifiers = [
 
 [tool.setuptools.packages.find]
 exclude = ["contrib", "docs", "tests", "examples"]
-
-[tool.setuptools.dynamic]
-version = { attr = "avanza.__version__" }
