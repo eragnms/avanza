@@ -1,9 +1,4 @@
+coveralls
 requests
 selenium
 pandas
-flake8
-bandit
-pytest
-sphinx
-sphinx_rtd_theme
-coveralls

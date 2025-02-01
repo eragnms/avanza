@@ -1,0 +1,42 @@
+# Forked from: https://github.com/North14/avanza
+[build-system]
+requires = [
+  "setuptools>=61",
+  "wheel"
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Avanza"
+# Declare that the version is determined dynamically from your code.
+dynamic = ["version"]
+description = "Python wrapper for Unofficial Avanza API"
+readme = { file = "README.rst", content-type = "text/x-rst" }
+requires-python = ">=3.6"
+# List the runtime dependencies.
+dependencies = [
+  "requests",
+  "selenium",
+  "pandas"
+]
+authors = [
+  { name = "North14" }
+]
+urls = { "Homepage" = "https://github.com/eragnms/avanza" }
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Topic :: Office/Business :: Financial",
+  "Topic :: Office/Business :: Financial :: Investment"
+]
+
+[tool.setuptools.packages.find]
+exclude = ["contrib", "docs", "tests", "examples"]
+
+[tool.setuptools.dynamic]
+version = { attr = "avanza.__version__" }
